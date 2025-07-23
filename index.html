@@ -1065,6 +1065,16 @@
                 });
             });
         });
+
+        //video-speed
+        document.addEventListener('DOMContentLoaded', () => {
+            const video = document.getElementById('hero-video');
+            if (video) {
+            video.playbackRate = 1.75; // or 2.0, 1.25, etc.
+            }
+        });
+
+
         
         // Sticky Header
         window.addEventListener('scroll', () => {
