@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Publications | Orynth Consulting</title>
+
+  <!-- Fonts & Icons (same as index) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray-100: #f5f5f5;
+      --gray-200: #e0e0e0;
+      --gray-300: #cccccc;
+      --gray-700: #444444;
+      --accent: #ff3b30;
+      --transition: all 0.3s ease;
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: var(--gray-700);
+      background-color: var(--white);
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'League Spartan', sans-serif;           
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: var(--black);
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* Buttons (same as index) */
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .btn-primary { background-color: var(--black); color: var(--white); }
+    .btn-primary:hover { background-color: var(--gray-700); transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .btn-outline { background: transparent; border: 2px solid var(--black); color: var(--black); }
+    .btn-outline:hover { background-color: var(--black); color: var(--white); }
+
+    /* Header & Navigation (exactly the same as index) */
+    header {
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      height: 80px;
+      display: flex;
+      align-items: center;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.1% 0;
+    }
+    .logo { display: flex; align-items: center; }
+    .logo img { height: 100px; } /* same logo size as index */
+    .nav-links { display: flex; list-style: none; }
+    .nav-links li { margin-left: 30px; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--black);
+      font-weight: 500;
+      transition: var(--transition);
+      position: relative;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent);
+      transition: var(--transition);
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--black); }
+
+    /* Section base */
+    .section { padding: 100px 0; }
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 60px;
+    }
+    .section-header h2 {
+      font-size: 2.5rem;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+    .section-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background-color: var(--accent);
+    }
+    .section-header p { font-size: 1.1rem; color: var(--gray-700); }
+
+    /* Publications page content */
+    main { padding-top: 80px; } /* offset for fixed header */
+    .hero { padding: 40px 0 0; } /* tighter top spacing on this page */
+
+    /* Publications grid/cards (same visual language as index) */
+    .filters{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 10px}
+    .chip{border:1px solid var(--gray-200);padding:8px 12px;border-radius:999px;cursor:pointer;transition:var(--transition);font-size:.9rem;background:#fff}
+    .chip:hover{box-shadow:var(--shadow)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin:24px 0 70px}
+    .card{border:1px solid var(--gray-200);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#fff;transition:var(--transition)}
+    .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover)}
+    .thumb{height:160px;background:#f0f0f0;background-size:cover;background-position:center}
+    .card-body{padding:16px}
+    .meta{font-size:.85rem;color:#666;margin-bottom:6px}
+    .title{font-size:1.15rem;font-weight:700;margin-bottom:8px;color:#000}
+    .desc{font-size:.95rem;color:#555}
+    .back{display:inline-flex;align-items:center;gap:8px;margin:18px 0;color:#000;text-decoration:none;font-weight:600}
+
+    /* Responsive (same breakpoints as index) */
+    @media (max-width: 992px) {
+      .hero h1 { font-size: 2.2rem; }
+    }
+    @media (max-width: 768px) {
+      .mobile-toggle { display: block; }
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding-top: 40px;
+        transition: var(--transition);
+      }
+      .nav-links.active { left: 0; }
+      .nav-links li { margin: 15px 0; }
+    }
+    @media(max-width:576px){ .hero h1{font-size:2rem} }
+  </style>
+</head>
+<body>
+  <!-- Header (copied from index) -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <a href="index.html">
+            <img src="logos/BlackFull.png" alt="Orynth Consulting Logo">
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#team">Team</a></li>
+          <li><a href="#top">Publications</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Publications</h2>
+          <p>Deep dives, field notes, and frameworks from the Orynth team. Browse by theme or explore our latest thinking below.</p>
+        </div>
+
+        <!-- Optional filter chips -->
+        <div class="filters">
+          <div class="chip">Category Design</div>
+          <div class="chip">Go-To-Market</div>
+          <div class="chip">Analytics</div>
+          <div class="chip">Fundraising</div>
+          <div class="chip">Case Studies</div>
+        </div>
+
+        <!-- Cards -->
+        <div class="grid">
+          <article class="card">
+            <div class="thumb" style="background-image:url('images/publications/thumb-category.jpg')"></div>
+            <div class="card-body">
+              <div class="meta">Playbook • Aug 2025</div>
+              <div class="title">Designing Categories: Making Competition Irrelevant</div>
+              <div class="desc">A practical path to define, name, and own your market—so you set the pace.</div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb" style="background-image:url('images/publications/thumb-gtm.jpg')"></div>
+            <div class="card-body">
+              <div class="meta">Brief • Jul 2025</div>
+              <div class="title">90-Day GTM Sprints: From Zero to Traction</div>
+              <div class="desc">A sprint model to validate channels, craft offers, and ship momentum fast.</div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="thumb" style="background-image:url('images/publications/thumb-analytics.jpg')"></div>
+            <div class="card-body">
+              <div class="meta">Memo • Jun 2025</div>
+              <div class="title">Analytics That Matter: From Vanity to Velocity</div>
+              <div class="desc">How to align metrics with business outcomes and avoid dashboard theater.</div>
+            </div>
+          </article>
+        </div>
+
+        <a class="back" href="index.html#publications"><i class="fa fa-arrow-left"></i> Back to website</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <small>&copy; 2025 Orynth Consulting. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- Mobile nav toggle (same behavior as index) -->
+  <script>
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    }
+  </script>
+</body>
+</html>

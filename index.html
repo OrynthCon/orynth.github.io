@@ -388,6 +388,22 @@
             gap: 30px;
         }
         
+
+        /* Force 3-up row for founders on large screens */
+        @media (min-width: 992px) {
+        .team-grid--founders-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        }
+
+        /* Slightly different background for PA section */
+        .section.pa-section {
+        background: #fafafa; /* subtly different from white */
+        }
+
+
         .team-member {
             text-align: center;
             background: var(--white);
@@ -597,6 +613,44 @@
             }
         }
         
+        
+        /* Publications section layout (text left, image right) */
+        .publications { background: #f9fafb; }
+
+        .pub-hero {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr; /* text a bit wider */
+        gap: 48px;
+        align-items: center;
+        }
+
+        .pub-copy { display: flex; flex-direction: column; }
+        .pub-copy h3 { font-size: 1.8rem; margin-bottom: 12px; }
+        .pub-copy p { margin: 0; line-height: 1.7; }
+
+        .pub-cta {
+        margin-top: 24px;            /* space between paragraph & button */
+        display: flex;
+        justify-content: center;     /* center the button */
+        }
+
+        .pub-image {
+        width: 100%;
+        height: 360px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--gray-200);
+        }
+
+        /* Responsive: stack on tablet/mobile */
+        @media (max-width: 992px) {
+        .pub-hero { grid-template-columns: 1fr; }
+        .pub-image { height: 260px; }
+}
+
+
+
         @media (max-width: 768px) {
             .mobile-toggle {
                 display: block;
@@ -672,6 +726,7 @@
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#team">Team</a></li>
+                    <li><a href="publications.html">Publications</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="mobile-toggle">
@@ -819,105 +874,176 @@
         </div>
     </section>
 
-
-<!-- Team Section -->
-<section class="section" id="team">
-    <div class="container">
-        <div class="section-header">
-            <h2>The Orynth Core Team</h2>
-            <p>Our multidisciplinary team of strategic thinkers and industry experts</p>
-        </div>
-        <div class="team-grid">
-            <div class="team-member">
-                <div class="member-img" style="background-image: url('images/joy.png')"></div>
-                <div class="member-info">
-                    <h3>Jayed Joy Kandulna</h3>
-                    <div class="position">Founder</div>
-                    <p>Visionary leader with expertise in strategic innovation and market disruption.</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/gyrofence/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <div class="member-img" style="background-image: url('images/ansh.jpg')"></div>
-                <div class="member-info">
-                    <h3>Ansh D. Agrawal</h3>
-                    <div class="position">Co-Founder</div>
-                    <p>Focuses on organizational development and legacy brand transformation.</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/anshdagrawal/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <div class="member-img" style="background-image: url('images/aadhisha.jpg')"></div>
-                <div class="member-info">
-                    <h3>Aadisha Chandel</h3>
-                    <div class="position"></div>
-                    <p>Specializes in digital transformation and brand positioning strategies.</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/aadisha-chandel-0b367622b/ " target="_blank"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <div class="member-img" style="background-image: url('images/aviral.jpg')"></div>
-                <div class="member-info">
-                    <h3>Aviral Bhadauria</h3>
-                    <div class="position">Growth & Strategy</div>
-                    <p>Drives expansion through innovative growth frameworks and market analysis.</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/aviral-bhadauria/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <div class="member-img" style="background-image: url('images/mananthareja.jpg')"></div>
-                <div class="member-info">
-                    <h3>Manan Thareja</h3>
-                    <div class="position">Consulting Operations</div>
-                    <p>Drives expansion through innovative growth frameworks and market analysis.</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/manan-thareja/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <div class="member-img" style="background-image: url('images/faraz.jpg')"></div>
-                <div class="member-info">
-                    <h3>Faraz Sarwer</h3>
-                    <div class="position">Consulting Services</div>
-                    <p>Leads client engagements with expertise in B2B demand generation.</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/farazsarwer/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="team-member">
-                <div class="member-img" style="background-image: url('images/shivansh.jpg')"></div>
-                <div class="member-info">
-                    <h3>Shivansh Pratap Singh</h3>
-                    <div class="position">Partnerships</div>
-                    <p>Builds strategic alliances and develops ecosystem partnerships.</p>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- PA Section -->
+<section class="section pa-section" id="pa">
+  <div class="container">
+    <div class="section-header">
+      <h2>The Orynth PA Team</h2>
+      <p>Passionate associates driving research and execution</p>
     </div>
+
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/anjalivirmani.jpg')"></div>
+        <div class="member-info">
+          <h3>Anjali Virmani</h3>
+          <div class="position">Research Head</div>
+          <p>Miranda House, Delhi University</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/anjali-virmani-264463324/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/nakul.jpg')"></div>
+        <div class="member-info">
+          <h3>Nakul Goel</h3>
+          <div class="position">Operations Head</div>
+          <p>Sri Guru Gobind Singh College of Commerce</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/nakul-goel-ab8754274/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/shirenkaul.jpg')"></div>
+        <div class="member-info">
+          <h3>Shiren Kaul</h3>
+          <div class="position">Outreach Head</div>
+          <p>SRCC</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/shiren-kaul-312356325/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/yuktitekchandani.jpg')"></div>
+        <div class="member-info">
+          <h3>Yukti Tekchandani</h3>
+          <div class="position">Content Head</div>
+          <p>Gargi College, University of Delhi</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/tekchandaniyukti01/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
 
 
+<!-- Advisory Section -->
+<section class="section" id="advisory">
+  <div class="container">
+    <div class="section-header">
+      <h2>The Orynth Advisory Board</h2>
+      <p>Industry professionals guiding our strategy and vision</p>
+    </div>
 
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/advisors/avnish-bhutra.jpg')"></div>
+        <div class="member-info">
+          <h3>Avnish Bhutra</h3>
+          <div class="position">Senior Manager (Bira91)</div>
+          <p>Ex-Analyst (EY), Ex-Relationship Manager (ICICI Bank)</p>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/advisors/anshul-manchanda.jpg')"></div>
+        <div class="member-info">
+          <h3>Anshul Manchanda</h3>
+          <div class="position">Associate Consultant (ZS)</div>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/advisors/chinmay-shitut.jpg')"></div>
+        <div class="member-info">
+          <h3>Chinmay Shitut</h3>
+          <div class="position">Associate Consultant (Infosys)</div>
+          <p>Ex-Consultant (Deloitte)</p>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/advisors/mahima-bhagat.jpg')"></div>
+        <div class="member-info">
+          <h3>Mahima Bhagat</h3>
+          <div class="position">Consultant (Deloitte)</div>
+          <p>Ex-Senior Analyst (KPMG India)</p>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/advisors/vaishu-rai.jpg')"></div>
+        <div class="member-info">
+          <h3>Vaishu Rai</h3>
+          <div class="position">Policy Consultant to Members of Parliament</div>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/advisors/yash-agarwal.jpg')"></div>
+        <div class="member-info">
+          <h3>Yash Agarwal</h3>
+          <div class="position">Founder (Public Policy India)</div>
+          <p>Manager (ICANN)</p>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/advisors/shreyansh-bharani.jpg')"></div>
+        <div class="member-info">
+          <h3>Shreyansh Bharani</h3>
+          <div class="position">Senior Advisory Consultant (IBM)</div>
+          <p>Ex-Senior Engineer (Larsen &amp; Toubro)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Publications Section -->
+    <section class="section publications" id="publications">
+    <div class="container">
+        <div class="section-header">
+        <h2>Publications</h2>
+        <p>Ideas, research, and playbooks that shape how modern brands grow.</p>
+        </div>
+
+        <div class="pub-hero">
+        <!-- Left: text block -->
+        <div class="pub-copy">
+            <h3>The Orynth Playbook Papers</h3>
+            <p>
+            From category design and GTM experiments to analytics frameworks and fundraising narratives—our
+            publications unpack the thinking behind <em>The Orynth Way</em>. Explore essays, briefs, and
+            case-led breakdowns created by our core team and advisors.
+            </p>
+
+            <!-- Centered button with space above -->
+            <div class="pub-cta">
+            <a href="publications.html" class="btn btn-primary">View all publications</a>
+            </div>
+        </div>
+
+        <!-- Right: image -->
+        <img
+            src="images/publications/cover.jpg"
+            alt="Orynth Consulting Publications Cover"
+            class="pub-image"
+        />
+        </div>
+    </div>
+    </section>
 
     <!-- Contact Section -->
     <section class="section" id="contact">
