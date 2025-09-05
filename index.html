@@ -38,6 +38,217 @@
             box-sizing: border-box;
         }
         
+        /* --- About (Remastered) --- */
+/* --- About Section (Remastered) --- */
+.about-v2 {
+  background: var(--gray-100);
+  padding: 100px 0;
+}
+
+.about-wrap {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* left text wider */
+  gap: 48px;
+  align-items: center;
+}
+
+/* Kicker line above heading */
+.kicker {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+/* Heading + intro */
+.about-v2 h2 {
+  font-size: 2.3rem;
+  margin-bottom: 16px;
+  color: var(--black);
+}
+
+.about-lead {
+  font-size: 1.15rem;
+  color: var(--gray-700);
+  margin-bottom: 22px;
+  line-height: 1.6;
+}
+
+/* Capability badges */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 28px;
+}
+.badge {
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: .9rem;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+.badge:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Four pillars */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 16px;
+  margin: 20px 0 8px;
+}
+.pillar {
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+.pillar:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+.pillar h4 {
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+  color: var(--black);
+}
+.pillar p {
+  font-size: .95rem;
+  color: var(--gray-700);
+}
+
+/* Metrics row */
+.stripe {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 24px 0;
+}
+.metric {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  text-align: center;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.metric .num {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--black);
+  line-height: 1;
+}
+.metric .label {
+  font-size: .9rem;
+  color: var(--gray-700);
+}
+
+/* Quote card */
+.quote {
+  border-left: 4px solid var(--accent);
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 18px 18px 18px 20px;
+  box-shadow: var(--shadow);
+  margin-top: 8px;
+  color: var(--gray-700);
+}
+.quote strong {
+  color: var(--black);
+}
+
+/* CTAs */
+.about-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+/* Right column media */
+.about-media {
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+.about-media img,
+.about-media video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .about-wrap {
+    grid-template-columns: 1fr;
+  }
+  .pillars {
+    grid-template-columns: 1fr;
+  }
+  .stripe {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 576px) {
+  .stripe {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+
+
+/* --- Subtle reveal animations --- */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in-view { opacity: 1; transform: none; }
+
+  .reveal-left   { opacity: 0; transform: translateX(-24px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal-right  { opacity: 0; transform: translateX(24px);  transition: opacity .8s ease, transform .8s ease; }
+  .reveal-left.in-view,
+  .reveal-right.in-view { opacity: 1; transform: none; }
+
+  /* Stagger helpers for grid items (pillars, metrics, cards) */
+  .stagger > * { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  .stagger.in-view > * { opacity: 1; transform: none; }
+  .stagger.in-view > *:nth-child(1) { transition-delay: .05s; }
+  .stagger.in-view > *:nth-child(2) { transition-delay: .12s; }
+  .stagger.in-view > *:nth-child(3) { transition-delay: .18s; }
+  .stagger.in-view > *:nth-child(4) { transition-delay: .24s; }
+  .stagger.in-view > *:nth-child(5) { transition-delay: .30s; }
+  .stagger.in-view > *:nth-child(6) { transition-delay: .36s; }
+}
+
+/* Safety: disable motion for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right, .stagger > * {
+    opacity: 1 !important; transform: none !important;
+  }
+}
+
+
+
+
+
+
+
+
         body {
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
@@ -757,6 +968,75 @@
 
 
 
+
+
+<section class="section about-v2" id="about">
+  <div class="container">
+    <div class="about-wrap">
+      
+      <!-- Left Column: Text -->
+      <div class="reveal-left">
+        <span class="kicker">The Orynth Way</span>
+        <h2>We don’t help you keep up. We help you set the pace.</h2>
+        <p class="about-lead">What We Do:</p>
+
+        <div class="badges stagger">
+          <span class="badge">Category Design</span>
+          <span class="badge">GTM Playbooks</span>
+          <span class="badge">Performance + Brand</span>
+          <span class="badge">ML-Ready Analytics</span>
+          <span class="badge">Founder Storytelling</span>
+        </div>
+        <div class="pillars stagger">
+        <div class="pillar">
+            <h4><i class="fa-solid fa-chess-knight"></i> Strategy that Ships</h4>
+            <p>We don’t leave you with decks that collect dust. Every recommendation translates into a 90-day sprint with tangible outcomes.</p>
+        </div>
+        <div class="pillar">
+            <h4><i class="fa-solid fa-wave-square"></i> Signals Over Noise</h4>
+            <p>We design analytics that matter—frameworks that inform decisions, not dashboards that drown you in vanity metrics.</p>
+        </div>
+        <div class="pillar">
+            <h4><i class="fa-solid fa-fire-flame-curved"></i> Playbook of No Rivals</h4>
+            <p>Competition is optional when you create the rules. We help you define, name, and own your category so you become the benchmark.</p>
+        </div>
+        <div class="pillar">
+            <h4><i class="fa-solid fa-handshake-angle"></i> Built With You</h4>
+            <p>Our agile model embeds weekly feedback loops, protects founder time, and compounds learnings to accelerate your journey.</p>
+        </div>
+        </div>
+
+        <div class="stripe stagger">
+          <div class="metric"><div class="num">2025</div><div class="label">Founded</div></div>
+          <div class="metric"><div class="num">7</div><div class="label">Core Members</div></div>
+          <div class="metric"><div class="num">10+</div><div class="label">Rapid Sprints Shipped</div></div>
+        </div>
+
+        <div class="quote reveal">Thats the real Orynth Way</div>
+
+        <div class="about-cta reveal">
+        </div>
+      </div>
+
+      <!-- Right Column: Picture -->
+      <div class="about-media reveal-right">
+        <img src="stockpics/team.jpg" alt="Orynth Consulting Team at Work">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
 <!-- Services Section -->
 <section class="section" id="services">
     <div class="container">
@@ -766,13 +1046,6 @@
         </div>
         <div class="services-grid">
 
-            <div class="service-card">
-                <div class="service-img" style="background-image: url('stockpics/brochure-design-agency.jpg')"></div>
-                <div class="service-content">
-                    <h3>Market Intelligence & Research</h3>
-                    <p>We dive deep into your industry to deliver actionable insights from primary and secondary research across geographies, trends, and competitors.</p>
-                </div>
-            </div>
 
             <div class="service-card">
                 <div class="service-img" style="background-image: url('stockpics/go-to-market.jpg')"></div>
@@ -782,13 +1055,6 @@
                 </div>
             </div>
 
-            <div class="service-card">
-                <div class="service-img" style="background-image: url('stockpics/digital-marketing.jpg')"></div>
-                <div class="service-content">
-                    <h3>Performance-Driven Marketing</h3>
-                    <p>We design and execute full-funnel marketing strategies that blend brand and performance to drive measurable growth across digital platforms.</p>
-                </div>
-            </div>
             <div class="service-card">
                 <div class="service-img" style="background-image: url('stockpics/pitching.jpg')"></div>
                 <div class="service-content">
@@ -828,51 +1094,11 @@
                 </div>
             </div>
 
-            <div class="service-card">
-                <div class="service-img" style="background-image: url('stockpics/campaign-deployment.jpg')"></div>
-                <div class="service-content">
-                    <h3>Rapid Campaign Deployment</h3>
-                    <p>We build and deploy high-impact campaigns in record time, with agile feedback loops to iterate, test, and optimize for conversion and recall.</p>
-                </div>
-            </div>
-
         </div>
     </div>
 </section>
 
 
-
-
-
-
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About Orynth Consulting</h2>
-                    <p>Orynth Consulting is a student-led strategic advisory founded by a multidisciplinary team from SSCBS, St. Stephen’s College, SRCC, SJCC, and IIT Madras. We combine diverse academic perspectives with bold thinking to redefine how modern brands grow and lead.</p>
-                    <p>In a world of crowded markets and copycat strategies, we help ambitious brands rewrite the rules of their category through agile, integrated consulting that merges data-driven performance with unforgettable brand-building. This isn't about keeping pace, it's about setting the pace.</p>
-                    <p>Our rapid-cycle approach cuts through guesswork to deliver actionable strategies that don’t just generate clicks, but create category leadership. At Orynth Consulting, we are the oracle of the labyrinth, guiding brands through complexity toward clarity, dominance, and distinction.</p>
-                    <p>Whether you’re a scaling startup tired of “good enough” results, a legacy brand ready to reclaim your throne, or a disruptor building a market where you’re the benchmark, The Orynth Way eliminates rivals by making competition irrelevant. The result? Your brand becomes the only name that matters. Your growth accelerates on demand. Your market share leaves no room for challengers.</p>
-                    <p>Let’s build your playbook.</p>
-                    <div class="stats">
-                        <div class="stat-box">
-                            <h3>2025</h3>
-                            <p>Founded</p>
-                        </div>
-                        <div class="stat-box">
-                            <h3>7</h3>
-                            <p>Core Members</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-img">
-                    <img src="https://picsum.photos/id/1/600/600" alt="Orynth Consulting Team">
-                </div>
-            </div>
-        </div>
-    </section>
 
 
 <!-- Team Section -->
@@ -890,7 +1116,7 @@
         <div class="member-info">
           <h3>Jayed Joy Kandulna</h3>
           <div class="position">Founder</div>
-          <p>Visionary leader with expertise in strategic innovation and market disruption.</p>
+          <p>Shaheed Sukhdev College of Business Studies.</p>
           <div class="social-links">
             <a href="https://www.linkedin.com/in/gyrofence/" target="_blank"><i class="fab fa-linkedin"></i></a>
           </div>
@@ -902,7 +1128,7 @@
         <div class="member-info">
           <h3>Ansh D. Agrawal</h3>
           <div class="position">Co-Founder</div>
-          <p>Focuses on organizational development and legacy brand transformation.</p>
+          <p>SRCC, CFA L3 Candidate, Ex - Yes Bank</p>
           <div class="social-links">
             <a href="https://www.linkedin.com/in/anshdagrawal/" target="_blank"><i class="fab fa-linkedin"></i></a>
           </div>
@@ -914,7 +1140,7 @@
         <div class="member-info">
           <h3>Aviral Bhadauria</h3>
           <div class="position">Co-Founder</div>
-          <p>Drives expansion through innovative growth frameworks and market analysis.</p>
+          <p>SBSC, President @ Marksoc, SBSC, Ex - Ditto</p>
           <div class="social-links">
             <a href="https://www.linkedin.com/in/aviral-bhadauria/" target="_blank"><i class="fab fa-linkedin"></i></a>
           </div>
@@ -928,8 +1154,8 @@
         <div class="member-img" style="background-image: url('images/mananthareja.jpg')"></div>
         <div class="member-info">
           <h3>Manan Thareja</h3>
-          <div class="position">Consulting Operations</div>
-          <p>Drives expansion through innovative growth frameworks and market analysis.</p>
+          <div class="position">Head of Consulting Operations</div>
+          <p>SRCC, VP @ FIC, SRCC, Incoming Goldman Sachs</p>
           <div class="social-links">
             <a href="https://www.linkedin.com/in/manan-thareja/" target="_blank"><i class="fab fa-linkedin"></i></a>
           </div>
@@ -940,8 +1166,8 @@
         <div class="member-img" style="background-image: url('images/faraz.jpg')"></div>
         <div class="member-info">
           <h3>Faraz Sarwer</h3>
-          <div class="position">Consulting Services</div>
-          <p>Leads client engagements with expertise in B2B demand generation.</p>
+          <div class="position">Head of Consulting Services</div>
+          <p>St. Stephens College</p>
           <div class="social-links">
             <a href="https://www.linkedin.com/in/farazsarwer/" target="_blank"><i class="fab fa-linkedin"></i></a>
           </div>
@@ -952,8 +1178,8 @@
         <div class="member-img" style="background-image: url('images/aadhisha.jpg')"></div>
         <div class="member-info">
           <h3>Aadisha Chandel</h3>
-          <div class="position">Digital Strategy</div>
-          <p>Specializes in digital transformation and brand positioning strategies.</p>
+          <div class="position">Head of Growth and Strategy</div>
+          <p>Lady Shri Ram College</p>
           <div class="social-links">
             <a href="https://www.linkedin.com/in/aadisha-chandel-0b367622b/" target="_blank"><i class="fab fa-linkedin"></i></a>
           </div>
@@ -965,7 +1191,7 @@
         <div class="member-info">
           <h3>Shivansh Pratap Singh</h3>
           <div class="position">Head of Consulting Operations</div>
-          <p>Builds strategic alliances and develops ecosystem partnerships.</p>
+          <p>SRCC, VP @ Computers & Maths Society</p>
           <div class="social-links">
             <a href="https://www.linkedin.com/in/" target="_blank"><i class="fab fa-linkedin"></i></a>
           </div>
@@ -990,7 +1216,7 @@
         <div class="member-img" style="background-image: url('images/anjalivirmani.jpg')"></div>
         <div class="member-info">
           <h3>Anjali Virmani</h3>
-          <div class="position">Research Head</div>
+          <div class="position">Project Associate</div>
           <p>Miranda House, Delhi University</p>
           <div class="social-links">
             <a href="https://www.linkedin.com/in/anjali-virmani-264463324/" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -1002,7 +1228,7 @@
         <div class="member-img" style="background-image: url('images/nakul.jpg')"></div>
         <div class="member-info">
           <h3>Nakul Goel</h3>
-          <div class="position">Operations Head</div>
+          <div class="position">Project Associate</div>
           <p>Sri Guru Gobind Singh College of Commerce</p>
           <div class="social-links">
             <a href="https://www.linkedin.com/in/nakul-goel-ab8754274/" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -1014,7 +1240,7 @@
         <div class="member-img" style="background-image: url('images/shirenkaul.jpg')"></div>
         <div class="member-info">
           <h3>Shiren Kaul</h3>
-          <div class="position">Outreach Head</div>
+          <div class="position">Project Associate</div>
           <p>SRCC</p>
           <div class="social-links">
             <a href="https://www.linkedin.com/in/shiren-kaul-312356325/" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -1026,7 +1252,7 @@
         <div class="member-img" style="background-image: url('images/yuktitekchandani.jpg')"></div>
         <div class="member-info">
           <h3>Yukti Tekchandani</h3>
-          <div class="position">Content Head</div>
+          <div class="position">Project Associate</div>
           <p>Gargi College, University of Delhi</p>
           <div class="social-links">
             <a href="https://www.linkedin.com/in/tekchandaniyukti01/" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -1039,6 +1265,94 @@
 </section>
 
 
+<!-- Senior Coordinators Section -->
+<section class="section" id="coordinators">
+  <div class="container">
+    <div class="section-header">
+      <h2>The Orynth Senior Coordinators</h2>
+      <p>Our senior coordinators bring global academic and professional perspectives to Orynth’s initiatives</p>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/AlinaJacob.jpg')"></div>
+        <div class="member-info">
+          <h3>Alina Jacob</h3>
+          <div class="position">University of Bath</div>
+          <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/HimanshiUpadhyay.jpg')"></div>
+        <div class="member-info">
+          <h3>Himanshi Upadhyay</h3>
+          <div class="position">National Law School of India University, Bengaluru</div>
+          <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/himanshuchopra.jpg')"></div>
+        <div class="member-info">
+          <h3>Himanshu Chopra</h3>
+          <div class="position">Indian Institute of Management, Bangalore</div>
+          <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/SAKSHI.jpg')"></div>
+        <div class="member-info">
+          <h3>Sakshi</h3>
+          <div class="position">Indian Institute of Management, Lucknow</div>
+          <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/somikroy.jpg')"></div>
+        <div class="member-info">
+          <h3>Soumik Roy</h3>
+          <div class="position">IIT Hyderabad</div>
+          <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-member">
+        <div class="member-img" style="background-image: url('images/VansikaJain.jpeg')"></div>
+        <div class="member-info">
+          <h3>Vansika Jain</h3>
+          <div class="position">King's College, London</div>
+          <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- Advisory Section -->
 <section class="section" id="advisory">
@@ -1049,69 +1363,99 @@
     </div>
 
     <div class="team-grid">
+
       <div class="team-member">
-        <div class="member-img" style="background-image: url('images/advisors/avnish-bhutra.jpg')"></div>
+        <div class="member-img" style="background-image: url('images/avnish.jpeg')"></div>
         <div class="member-info">
           <h3>Avnish Bhutra</h3>
           <div class="position">Senior Manager (Bira91)</div>
           <p>Ex-Analyst (EY), Ex-Relationship Manager (ICICI Bank)</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/avnish-bhutra/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
       </div>
 
       <div class="team-member">
-        <div class="member-img" style="background-image: url('images/advisors/anshul-manchanda.jpg')"></div>
+        <div class="member-img" style="background-image: url('images/anshul.jpeg')"></div>
         <div class="member-info">
           <h3>Anshul Manchanda</h3>
           <div class="position">Associate Consultant (ZS)</div>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/anshul-manchanda-331324156/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
       </div>
 
       <div class="team-member">
-        <div class="member-img" style="background-image: url('images/advisors/chinmay-shitut.jpg')"></div>
+        <div class="member-img" style="background-image: url('images/chinmay.jpeg')"></div>
         <div class="member-info">
           <h3>Chinmay Shitut</h3>
           <div class="position">Associate Consultant (Infosys)</div>
           <p>Ex-Consultant (Deloitte)</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/chinmay-shitut/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
       </div>
 
       <div class="team-member">
-        <div class="member-img" style="background-image: url('images/advisors/mahima-bhagat.jpg')"></div>
+        <div class="member-img" style="background-image: url('images/mahima.jpeg')"></div>
         <div class="member-info">
           <h3>Mahima Bhagat</h3>
           <div class="position">Consultant (Deloitte)</div>
           <p>Ex-Senior Analyst (KPMG India)</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/mahima-bhagat/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
       </div>
 
       <div class="team-member">
-        <div class="member-img" style="background-image: url('images/advisors/vaishu-rai.jpg')"></div>
+        <div class="member-img" style="background-image: url('images/Vaishu.png')"></div>
         <div class="member-info">
           <h3>Vaishu Rai</h3>
           <div class="position">Policy Consultant to Members of Parliament</div>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/vaishu-rai-319982228/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
       </div>
 
       <div class="team-member">
-        <div class="member-img" style="background-image: url('images/advisors/yash-agarwal.jpg')"></div>
+        <div class="member-img" style="background-image: url('images/yash.jpeg')"></div>
         <div class="member-info">
           <h3>Yash Agarwal</h3>
           <div class="position">Founder (Public Policy India)</div>
           <p>Manager (ICANN)</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/yashagarwalm/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
       </div>
 
       <div class="team-member">
-        <div class="member-img" style="background-image: url('images/advisors/shreyansh-bharani.jpg')"></div>
+        <div class="member-img" style="background-image: url('images/shreyansh.jpeg')"></div>
         <div class="member-info">
           <h3>Shreyansh Bharani</h3>
           <div class="position">Senior Advisory Consultant (IBM)</div>
           <p>Ex-Senior Engineer (Larsen &amp; Toubro)</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/shreyanshbharani/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
+
+
+
+
+
+
+
 
 
     <!-- Publications Section -->
@@ -1140,7 +1484,7 @@
 
         <!-- Right: image -->
         <img
-            src="images/publications/cover.jpg"
+            src="stockpics/publications.jpg"
             alt="Orynth Consulting Publications Cover"
             class="pub-image"
         />
@@ -1204,7 +1548,7 @@
                         <i class="fas fa-map-marker-alt"></i>
                         <div class="info-text">
                             <h4>Locations</h4>
-                            <p>New Delhi, India<br>Mumbai, India<br>Banglore, India</p>
+                            <p>New Delhi, India<br>Mumbai, India<br>Bangalore, India</p>
                         </div>
                     </div>
                     <div class="info-item">
@@ -1299,5 +1643,25 @@
             header.classList.toggle('sticky', window.scrollY > 0);
         });
     </script>
+
+    <script>
+  (function () {
+    const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger');
+    if (!('IntersectionObserver' in window) || !els.length) {
+      els.forEach(el => el.classList.add('in-view'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+    els.forEach(el => io.observe(el));
+  })();
+</script>
+
 </body>
 </html>
